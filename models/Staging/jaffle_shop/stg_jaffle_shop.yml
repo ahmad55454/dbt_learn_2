@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_country
+    columns:
+      - name: user_pseudo_id
+        description: THIS COLUMN IN UNIQUE ID PER USER AS IDENTIFIED BY GOOGLE.
+        tests:
+          - unique
+          - not_null

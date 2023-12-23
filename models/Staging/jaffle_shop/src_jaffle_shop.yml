@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: aerial-mantis-341807
+    schema: analytics_337653599
+    description: This referes to urbusienspal data exported to BQ.
+    tables:
+      - name: ga4_events
+        description: '{{doc("order_status")}}'
+        columns:
+          - name: user_pseudo_id
+            description: This is unique id provided by google to a unique visitor
+            tests:
+              - not_null
+              
+        loaded_at_field: event_timestamp
+        freshness:
+          warn_after: 
+            count: 1
+            period: day
+          error_after: 
+            count: 100
+            period: day
